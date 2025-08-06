@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useState } from 'react';
 
 const roleNav = {
-  employee: [{ to: '/employee/dashboard', label: 'Dashboard', icon: Home }],
+  employee: [{ to: '/employee/dashboard/overview', label: 'Dashboard', icon: Home }],
   admin: [{ to: '/admin/dashboard', label: 'Dashboard', icon: Home }],
   bd: [{ to: '/bd/dashboard', label: 'Dashboard', icon: Home }],
   finance: [{ to: '/finance/dashboard', label: 'Dashboard', icon: Home }],

@@ -2,7 +2,12 @@ import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-
 import Sidebar from './components/Sidebar';
 import Topbar from './components/Topbar';
 import Login from './pages/Login';
-import EmployeeDashboard from './pages/EmployeeDashboard';
+import EmployeeLayout from './pages/employee/EmployeeLayout';
+import Overview from './pages/employee/Overview';
+import LeaveApplication from './pages/employee/LeaveApplication';
+import Reports from './pages/employee/Reports';
+import Settings from './pages/employee/Settings';
+import Complaints from './pages/employee/Complaints';
 import AdminDashboard from './pages/AdminDashboard';
 import BDDashboard from './pages/BDDashboard';
 import FinanceDashboard from './pages/FinanceDashboard';
@@ -31,14 +36,14 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route element={<AppLayout />}>
-            <Route
-              path="/employee/dashboard"
-              element={
-                <ProtectedRoute roles={['employee']}>
-                  <EmployeeDashboard />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/employee/dashboard/*" element={<ProtectedRoute roles={['employee']}><EmployeeLayout /></ProtectedRoute>}>
+              <Route index element={<Navigate to='overview' />} />
+              <Route path='overview' element={<Overview />} />
+              <Route path='leave' element={<LeaveApplication />} />
+              <Route path='reports' element={<Reports />} />
+              <Route path='settings' element={<Settings />} />
+              <Route path='complaints' element={<Complaints />} />
+            </Route>
             <Route
               path="/admin/dashboard"
               element={

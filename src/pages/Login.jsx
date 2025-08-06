@@ -13,7 +13,7 @@ const roles = [
 ];
 
 const roleToPath = {
-  employee: '/employee/dashboard',
+  employee: '/employee/dashboard/overview',
   admin: '/admin/dashboard',
   bd: '/bd/dashboard',
   finance: '/finance/dashboard',
