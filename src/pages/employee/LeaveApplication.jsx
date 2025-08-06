@@ -18,6 +18,7 @@ const LeaveApplication = () => {
       (new Date(form.end).getTime() - new Date(form.start).getTime()) / (1000 * 60 * 60 * 24) + 1;
     // Push new leave to list with pending status
     setLeaves([...leaves, { ...form, duration, status: 'pending' }]);
+
     // Reset form
     setForm({ start: '', end: '', type: 'sick', reason: '' });
   };
