@@ -9,6 +9,10 @@ import Reports from './pages/employee/Reports';
 import Settings from './pages/employee/Settings';
 import Complaints from './pages/employee/Complaints';
 import AdminDashboard from './pages/AdminDashboard';
+import EmployeeList from './pages/admin/EmployeeList';
+import EmployeeProfile from './pages/admin/EmployeeProfile';
+import AttendanceExport from './pages/admin/AttendanceExport';
+import AssetManagement from './pages/admin/AssetManagement';
 import BDDashboard from './pages/BDDashboard';
 import FinanceDashboard from './pages/FinanceDashboard';
 import ManagerDashboard from './pages/ManagerDashboard';
@@ -49,6 +53,38 @@ function App() {
               element={
                 <ProtectedRoute roles={['admin']}>
                   <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/employees"
+              element={
+                <ProtectedRoute roles={['admin']}>
+                  <EmployeeList />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/employees/:id"
+              element={
+                <ProtectedRoute roles={['admin']}>
+                  <EmployeeProfile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/attendance"
+              element={
+                <ProtectedRoute roles={['admin']}>
+                  <AttendanceExport />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/assets"
+              element={
+                <ProtectedRoute roles={['admin']}>
+                  <AssetManagement />
                 </ProtectedRoute>
               }
             />
